@@ -8,6 +8,6 @@ package p
 //	p.Ptr("hello") // returns *string pointing to "hello"
 //	p.Ptr([]int{1, 2, 3}) // returns *[]int pointing to []int{1, 2, 3}
 //	p.Ptr(map[string]int{"a": 1, "b": 2}) // returns *map[string]int pointing to map[string]int{"a": 1, "b
-func Ptr[T any](v T) *T {
+func Ptr[E any](v E) *E {
 	return &v
 }

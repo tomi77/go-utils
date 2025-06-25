@@ -23,11 +23,11 @@ package s
 //	s.Map(nil, func(i int) int {
 //	    return i * 2
 //	}) // returns nil
-func Map[K any, V any](m []K, fn func(K) V) []V {
+func Map[S ~[]E, E any, F any](m S, fn func(E) F) []F {
 	if m == nil || fn == nil {
 		return nil
 	}
-	r := make([]V, len(m))
+	r := make([]F, len(m))
 	for i, v := range m {
 		r[i] = fn(v)
 	}
@@ -51,7 +51,7 @@ func Map[K any, V any](m []K, fn func(K) V) []V {
 //	s.MapInPlace([]bool{true, false}, func(b bool) bool {
 //	    return !b
 //	}) // modifies the original slice to []bool{false, true}
-func MapInPlace[K any](m []K, fn func(K) K) {
+func MapInPlace[S ~[]E, E any](m S, fn func(E) E) {
 	if m == nil || fn == nil {
 		return
 	}

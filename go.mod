@@ -1,6 +1,6 @@
 module github.com/tomi77/go-utils
 
-go 1.24.4
+go 1.20
 
 require github.com/stretchr/testify v1.10.0
 

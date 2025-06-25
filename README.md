@@ -8,7 +8,7 @@ Pointers
 
 #### Ptr[T any](v T) *T
 
-Ptr returns a pointer to the value v.
+Returns a pointer to the value v.
 It is a convenience function to avoid writing &v.
 
 ### s
@@ -17,10 +17,20 @@ Slices
 
 #### Map[K comparable, V any](m []K, fn func(K) V) []V
 
-Map applies the function fn to each element of the slice m and returns a new slice containing the results.
+Applies the function fn to each element of the slice m and returns a new slice containing the results.
 If m is empty, it returns nil.
 
 #### MapInPlace[K comparable](m []K, fn func(K) K)
 
-MapInPlace applies the function fn to each element of the slice m in place.
+Applies the function fn to each element of the slice m in place.
 It modifies the original slice and does not return a new slice.
+
+#### Unique[S ~[]E, E comparable](m S) S
+
+Returns a new slice containing only the unique elements from the input slice.
+It preserves the order of the first occurrence of each element.
+
+#### UniqueFunc[S ~[]E, E comparable](m S, fn func(E) E) S
+
+Returns a new slice containing only the unique elements from the input slice, based on the transformation function fn applied to each element.
+It preserves the order of the first occurrence of each transformed element.

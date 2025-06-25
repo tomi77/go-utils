@@ -23,7 +23,7 @@ package s
 //	s.Map(nil, func(i int) int {
 //	    return i * 2
 //	}) // returns nil
-func Map[K comparable, V any](m []K, fn func(K) V) []V {
+func Map[K any, V any](m []K, fn func(K) V) []V {
 	if m == nil || fn == nil {
 		return nil
 	}
@@ -51,7 +51,7 @@ func Map[K comparable, V any](m []K, fn func(K) V) []V {
 //	s.MapInPlace([]bool{true, false}, func(b bool) bool {
 //	    return !b
 //	}) // modifies the original slice to []bool{false, true}
-func MapInPlace[K comparable](m []K, fn func(K) K) {
+func MapInPlace[K any](m []K, fn func(K) K) {
 	if m == nil || fn == nil {
 		return
 	}
